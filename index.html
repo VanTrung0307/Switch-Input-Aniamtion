@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Switch Input Animation</title>
+
+    <style>
+      .switch input[type='checkbox'] {
+        height: 0;
+        width: 0;
+        visibility: hidden;
+      }
+
+      .switch label {
+        cursor: pointer;
+        padding: 4px;
+        width: 45px;
+        height: 20px;
+        background: rgb(128, 120, 128);
+        display: block;
+        position: relative;
+        border-radius: 50em;
+        transition: 0.4s;
+        box-sizing: content-box;
+      }
+
+      .switch label::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: white;
+        border-radius: 50em;
+        transition: 0.4s;
+      }
+
+      .switch input:active + label {
+        background: rgb(128, 120, 128, 0.8);
+      }
+      .switch input:checked + label {
+        background: rgb(114, 63, 225);
+      }
+      .switch input:checked + label::after {
+        transform: translateX(calc(100% + 5px));
+      }
+    </style>
+  </head>
+  <body>
+    <div class="switch">
+      <input type="checkbox" id="switch" checked />
+      <label for="switch"></label>
+    </div>
+  </body>
+</html>
